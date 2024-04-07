@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="jmespath.js"></script>
+    <script src="data.js"></script>
+    <script>       
+        window.onload = function() {
+           console.log("Наличие terminals1 в data");
+           let result =jmespath.search(data, "content[?path == '/terminals1/-']");
+           console.log(result);
+           let resultTradeSpot =jmespath.search(data, "!not_null(content[?path == '/terminals1/-'])");
+           console.log(resultTradeSpot);
+
+            console.log("Наличие terminals5 в data");
+            let result5 =jmespath.search(data, "content[?path == '/terminals5/-']");
+            console.log(result5);
+            let resultTradeSpot5 =jmespath.search(result5, "!not_null(content[?path == '/terminals5/-'])");
+            console.log(resultTradeSpot5);
+
+
+        }
+//        content[?path == '/terminals/-' && !contains([{"paybackTypeCode":"PaybackType_AFT"},{"paybackTypeCode":"PaybackType_AFT1"}]}.paybackTypeCode, value.paybackTypeCode)]
+//content[?path == '/terminals/-' && !contains([{"paybackTypeCode":"PaybackType_AFT"},{"paybackTypeCode":"PaybackType_AFT1"}].paybackTypeCode, value.paybackTypeCode)]
+//content[!contains(["PaybackType_AFT"], value.paybackTypeCode)]
+    
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>
+
